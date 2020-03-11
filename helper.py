@@ -7,10 +7,6 @@ def clean_team_salary_df(df):
     col_titles = ['no.', 'name', 'nationality', 'pos', 'age', 'ht', 'wt', 'hand', 'exp', 'birth_date', 'summary', 'salary', 'draft']
     df.columns = col_titles
     
-    # Remove goalies from players DataFrame & Rename Jonathan Toews
-    index_names = df[(df.name == 'Corey Crawford') | (df.name == 'Malcolm Subban')].index
-    df.drop(index_names, inplace = True)
-    
     # Clean names column to strip player names of unecessary characters
     names = df.name.tolist()
     new_names = []
@@ -55,5 +51,9 @@ def clean_team_salary_df(df):
     # Drop unecessary columns
     df.drop(['summary', 'draft', 'birth_date'], axis = 1, inplace = True)
     
+    positions = ['F', 'D']
+    df = df[df['pos'].isin(positions)]
+    
+    df.replace('Jonathan Toews (C)', 'Jonathan Toews', inplace = True)
     
     return df
