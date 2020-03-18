@@ -57,3 +57,11 @@ def clean_team_salary_df(df):
     df.replace('Jonathan Toews (C)', 'Jonathan Toews', inplace = True)
     
     return df
+
+
+
+def clean_full_df(df1, df2, situation):
+    team_df = df1[(df1.team == 'CHI') & (df1.situation == f"{situation}")]
+    full_df = pd.merge(team_df, df2, on = ['name'], how = 'outer')
+    full_df = full_df.drop(labels = ['no.', 'pos'], axis = 1)
+    

@@ -57,3 +57,8 @@ def clean_team_salary_df(df):
     df.replace('Jonathan Toews (C)', 'Jonathan Toews', inplace = True)
     
     return df
+
+
+
+def clean_full_df(df, situation):
+    
