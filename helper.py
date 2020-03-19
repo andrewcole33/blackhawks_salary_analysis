@@ -65,3 +65,27 @@ def clean_full_df(df1, df2, situation):
     full_df = pd.merge(team_df, df2, on = ['name'], how = 'outer')
     full_df = full_df.drop(labels = ['no.', 'pos'], axis = 1)
     
+    
+    seabrook = {'name': 'Brent Seabrook', 'nationality':'CAN', 'age': 34, 'ht': 75, 'wt': '220', 'hand':'R', 'exp': 15, 'salary': 6875000}
+    sikura = {'name': 'Dylan Sikura', 'nationality': 'CAN', 'age':24, 'ht':71, 'wt':166, 'hand': 'L', 'exp': 3 , 'salary': 750000}
+    dehaan = {'name':'Calvin de Haan', 'nationality': 'CAN', 'age':28, 'ht':73, 'wt':195, 'hand': 'L', 'exp': 8 , 'salary': 4550000}
+    gilbert = {'name':'Dennis Gilbert', 'nationality': 'USA', 'age':23, 'ht':74, 'wt':216, 'hand': 'L', 'exp': 0.5 , 'salary': 925000}
+    nylander = {'name':'Alex Nylander', 'nationality': 'SWE', 'age':22, 'ht':73, 'wt':192, 'hand': 'R', 'exp': 4 , 'salary': 863333}
+    quenneville = {'name':'John Quenneville', 'nationality': 'CAN', 'age':23, 'ht':73, 'wt':195, 'hand': 'L', 'exp': 3 , 'salary': 750000}
+    wedin = {'name':'Anton Wedin','nationality': 'SWE', 'age':27, 'ht': 71, 'wt':195, 'hand': 'L', 'exp': 0.5 , 'salary': 925000}
+    beaudin = {'name':'Nicolas Beaudin','nationality': 'CAN', 'age':20, 'ht':71, 'wt':172, 'hand': 'L', 'exp': 0.5 , 'salary': 894167}
+    shaw = {'name':'Andrew Shaw','nationality': 'CAN', 'age':28, 'ht':71, 'wt':182, 'hand': 'R', 'exp': 9 , 'salary':3900000}
+    
+    
+    empty_players = ['Brent Seabrook', 'Dylan Sikura', 'Calvin de Haan', 'Dennis Gilbert', 'Alex Nylander', 'John Quenneville', 'Anton Wedin', 'Nicolas Beaudin', 'Andrew Shaw']
+    empty_player_dicts = [seabrook, sikura, dehaan, gilbert, nylander, quenneville, wedin, beaudin, shaw]
+    
+    for player in empty_players:
+        for pdict in empty_player_dicts:
+            full_df = full_df[full_df.name == player] = full_df.fillna(pdict)
+            
+    full_df.drop(full_df.tail(1).index, inplace = True)
+    
+    return full_df
+    
+    
