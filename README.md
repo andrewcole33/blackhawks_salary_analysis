@@ -1,0 +1,2 @@
+This data visualization tutorial was completed in counterpart to a Medium blog post. For complete walkthrough of the notebook, please head over to:
+https://medium.com/@andrewcole.817/seaborn-visualizations-tutorial-c390bf1d43ce
